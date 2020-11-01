@@ -67,8 +67,8 @@ export const Popup3 = (props) => {
         </TouchableOpacity>
       </View>
       <ScrollView style={{flex:1, marginLeft:width*.04}}>
-        <TouchableOpacity style={{marginTop:height*.02, paddingTop:height*.003, paddingBottom:height*.003,}} onPress={() => changeLocation("St. Clair Shores")}>
-          <Text maxFontSizeMultiplier={1} style={{ fontSize:fonted*.06}}>St. Clair Shores</Text>
+        <TouchableOpacity style={{marginTop:height*.02, paddingTop:height*.003, paddingBottom:height*.003,}} onPress={() => changeLocation("Detroit, Mi")}>
+          <Text maxFontSizeMultiplier={1} style={{ fontSize:fonted*.06}}>Detroit, Mi</Text>
         </TouchableOpacity>
         {[...Array(7).keys()].map((datum) => {
           return tabView(datum);

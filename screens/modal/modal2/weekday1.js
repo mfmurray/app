@@ -39,19 +39,15 @@ export const Weekday1 = (props) => {
 
   useEffect(() => {
     setCount(18)
-    console.log('sup ',props.stringy)
   }, []);
 
   function reduxScroll(tab) {
-    console.log('redux ')
     dispatch({ type: 'REDUX_SCROLL', scrolled:tab })
   }
 
   useLayoutEffect(() => {
 
     var number = Math.floor(props.scrollState/7.1)
-    console.log('number ',number)
-    console.log('number ',props.scrollState)
       scrollViewRef.current.scrollTo({x: width*number, duration:200, animated: true,})
   }, [props.scrollState]);
 
@@ -61,7 +57,6 @@ export const Weekday1 = (props) => {
   }
 
   function scrollToView(tab) {
-    console.log(tab)
     if (tab==1) {
       props.scrollToView1()
     }
@@ -95,7 +90,6 @@ export const Weekday1 = (props) => {
         )
   }
   function dayView(tab) {
-    console.log('tab ',tab)
     var weekString = ["M","T","W","T","F","Sa","Su"]
       return (
           <TouchableOpacity style={{width:width*.07, alignItems:'center', justifyContent:'center'}} onPress={() => reduxScroll(tab[0]+7*tab[1]+1) }>

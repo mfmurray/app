@@ -41,7 +41,7 @@ export const Modal4 = (props) => {
   return (
 
     <View style={styles.container}>
-      <Text>Stats from workout</Text>
+      <Text>Workout Videos</Text>
     </View>
 
 

@@ -3,7 +3,7 @@
 
 const initialState = {
   user: 1,
-  location:"St. Clair Shores",
+  location:"Detroit, Mi",
   scrollIndex:0,
 };
 

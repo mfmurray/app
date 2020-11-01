@@ -41,7 +41,7 @@ export const Modal3 = (props) => {
   return (
 
     <View style={styles.container}>
-      <Text>Studios</Text>
+      <Text>Find a Studio</Text>
     </View>
 
 

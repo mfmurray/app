@@ -38,7 +38,6 @@ export const Weekday = (props) => {
 
   useEffect(() => {
     setCount(18)
-    console.log('sup ',props.stringy)
   }, []);
 
   function sampleFunction() {

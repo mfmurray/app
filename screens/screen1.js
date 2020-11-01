@@ -7,6 +7,7 @@ import * as Font from 'expo-font';
 import { getBottomSpace, getStatusBarHeight, ifIphoneX } from 'react-native-iphone-x-helper'
 import { Octicons, FontAwesome5, Ionicons, AntDesign, Feather, FontAwesome,Entypo, MaterialIcons,MaterialCommunityIcons,SimpleLineIcons } from '@expo/vector-icons';
 import Constants from "expo-constants";
+import TabBar from "./fluid";
 
 import {Modal1} from '../screens/modal/modal1';
 import {Modal2} from '../screens/modal/modal2';
@@ -168,24 +169,19 @@ export const Screen1 = ({ navigation }) => {
         />):(null)}
 
         <View style={{position:'absolute', bottom:0, left:0, right:0, backgroundColor:color1, paddingTop:height*.007,...ifIphoneX({paddingBottom: 25}, {paddingBottom: 0})}}>
-          <View style={{width:width, flexDirection:'row', justifyContent:'space-around', paddingBottom:0}}>
-            <TouchableOpacity activeOpacity={1} style={{padding:width*.025, alignItems:'center'}} onPress={() => setmainState(1)}>
-              <Text maxFontSizeMultiplier={1} style={{fontFamily:"Inter-Black" ,color:(mainState==1 ? "black":'rgba(0, 0, 0, 0.4)'), fontSize:fonted*.038}}>Main</Text>
-              <Octicons name="primitive-dot" size={width*.03} color={mainState==1 ? "black":'transparent'} />
-            </TouchableOpacity>
-            <TouchableOpacity activeOpacity={1} style={{padding:width*.025, alignItems:'center'}} onPress={() => setmainState(2)}>
-              <Text maxFontSizeMultiplier={1} style={{fontFamily:"Inter-Black" ,color:(mainState==2 ? "black":'rgba(0, 0, 0, 0.4)'), fontSize:fonted*.038}}>Find class</Text>
-              <Octicons name="primitive-dot" size={width*.03} color={mainState==2 ? "black":'transparent'} />
-            </TouchableOpacity>
-            <TouchableOpacity activeOpacity={1} style={{padding:width*.025, alignItems:'center'}} onPress={() => setmainState(3)}>
-              <Text maxFontSizeMultiplier={1} style={{fontFamily:"Inter-Black" ,color:(mainState==3 ? "black":'rgba(0, 0, 0, 0.4)'), fontSize:fonted*.038}}>Studios</Text>
-              <Octicons name="primitive-dot" size={width*.03} color={mainState==3 ? "black":'transparent'} />
-            </TouchableOpacity>
-            <TouchableOpacity activeOpacity={1} style={{padding:width*.025, alignItems:'center'}} onPress={() => setmainState(4)}>
-              <Text maxFontSizeMultiplier={1} style={{fontFamily:"Inter-Black" ,color:(mainState==4 ? "black":'rgba(0, 0, 0, 0.4)'), fontSize:fonted*.038}}>Stats</Text>
-              <Octicons name="primitive-dot" size={width*.03} color={mainState==4 ? "black":'transparent'} />
-            </TouchableOpacity>
-          </View>
+          <TabBar
+            onPress={tabIndex => {
+              setmainState(tabIndex+1)
+              console.log("render component with index: ", tabIndex);
+            }}
+            values={[
+              { title: "Today", icon: require("../assets/fluidIcons/leader.png") },
+              { title: "Schedule", icon: require("../assets/fluidIcons/events.png") },
+              { title: "Studios", icon: require("../assets/fluidIcons/location.png") },
+              { title: "Video", icon: require("../assets/fluidIcons/video.png") },
+            ]}
+          />
+          <View style={{position:'absolute', bottom:0, left:0, right:0, height:25, backgroundColor:'#e77b28'}}></View>
         </View>
 
         <Animated.View style={{position:'absolute', top:0, left:0, right:0, bottom:0, opacity:mainViewOpacity, backgroundColor:'black'}} pointerEvents="none"></Animated.View>

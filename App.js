@@ -11,7 +11,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 import {Screen1} from './screens/screen1';
-import {Screen2} from './screens/screen2';
 
 
 
@@ -30,11 +29,6 @@ export default function App() {
             name="Screen1"
             component={Screen1}
             options={{ title: 'Screen1',headerShown: false }}
-          />
-          <Stack.Screen
-            name="Screen2"
-            component={Screen2}
-            options={{ title: 'Screen2',headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
